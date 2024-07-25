@@ -47,7 +47,7 @@ int print_string(va_list args)
 		ct++;
 	}
 	}
-	return (ct);
+	return (m);
 }
 
 /**
