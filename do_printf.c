@@ -8,7 +8,8 @@
  *
  * Return: the number of the characters printed.
  * and excluding the null byte.
- */
+*/
+
 int _printf(const char *format, ...)
 {
 	va_list args;
@@ -31,7 +32,7 @@ int _printf(const char *format, ...)
 		ct++;
 	}
 	va_end(args);
-	return (-1);
+	return (ct);
 }
 
 /**
@@ -44,6 +45,7 @@ int _printf(const char *format, ...)
  *
  * Return: returns the number of characters printed.
  */
+
 int add_printf(const char *ptr, va_list args)
 {
 	int t;
@@ -71,5 +73,5 @@ int add_printf(const char *ptr, va_list args)
 		ct += 2;
 	}
 
-	return (-1);
+	return (ct);
 }

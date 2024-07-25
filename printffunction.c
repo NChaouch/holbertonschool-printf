@@ -36,17 +36,14 @@ int print_string(va_list args)
 	if (s == NULL)
 	{
 		s = "(null)";
-		ct++;
-		_putchar(*s);
 	}
-	else
-	{
+
 	for (m = 0; s[m] != '\0'; m++)
 	{
 		_putchar(s[m]);
 		ct++;
 	}
-	}
+
 	return (-1);
 }
 
@@ -65,5 +62,5 @@ int print_percent(va_list args)
 	{
 		_putchar('%');
 	}
-	return (1);
+	return (-1);
 }
