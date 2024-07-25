@@ -8,30 +8,31 @@
  *
  * Return: the number of the characters printed.
  * and excluding the null byte.
- */
+*/
+
 int _printf(const char *format, ...)
 {
-	va_list args;
-	const char *ptr;
-	int ct = 0;
+        va_list args;
+        const char *ptr;
+        int ct = 0;
 
-	va_start(args, format);
-	ptr = format;
+        va_start(args, format);
+        ptr = format;
 
-	while (*ptr != '\0')
-	{
-		if (*ptr == '%')
-		{
-			ptr++;
-			ct += add_printf(ptr, args);
-			ptr++;
-		}
-		_putchar(*ptr);
-		ptr++;
-		ct++;
-	}
-	va_end(args);
-	return (ct);
+        while (*ptr != '\0')
+        {
+                if (*ptr == '%')
+                {
+                        ptr++;
+                        ct += add_printf(ptr, args);
+                        ptr++;
+                }
+                _putchar(*ptr);
+                ptr++;
+                ct++;
+        }
+        va_end(args);
+        return (ct);
 }
 
 /**
@@ -44,32 +45,33 @@ int _printf(const char *format, ...)
  *
  * Return: returns the number of characters printed.
  */
+
 int add_printf(const char *ptr, va_list args)
 {
-	int t;
-	int ct = 0;
+        int t;
+        int ct = 0;
 
-	spe_printf_t name_tab[] = {
-		{'c', print_char},
-		{'s', print_string},
-		{'%', print_percent},
-		{'\0', NULL}
-	};
+        spe_printf_t name_tab[] = {
+                {'c', print_char},
+                {'s', print_string},
+                {'%', print_percent},
+                {'\0', NULL}
+        };
 
-	for (t = 0; name_tab[t].spe != '\0'; t++)
-	{
-		if (*ptr == name_tab[t].spe)
-		{
-			ct += name_tab[t].func(args);
-			break;
-		}
-	}
-	if (name_tab[t].spe == '\0' && *ptr != '\0')
-	{
-		_putchar('%');
-		_putchar(*ptr);
-		ct += 2;
-	}
+        for (t = 0; name_tab[t].spe != '\0'; t++)
+        {
+                if (*ptr == name_tab[t].spe)
+                {
+                        ct += name_tab[t].func(args);
+                        break;
+                }
+        }
+        if (name_tab[t].spe == '\0' && *ptr != '\0')
+        {
+                _putchar('%');
+                _putchar(*ptr);
+                ct += 2;
+        }
 
-	return (ct);
+        return (ct);
 }
