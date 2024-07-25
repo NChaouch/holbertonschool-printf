@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 		ct++;
 	}
 	va_end(args);
-	return (ct);
+	return (-1);
 }
 
 /**
@@ -71,5 +71,5 @@ int add_printf(const char *ptr, va_list args)
 		ct += 2;
 	}
 
-	return (ct);
+	return (-1);
 }
