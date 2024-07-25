@@ -31,20 +31,14 @@ int print_char(va_list args)
 int print_string(va_list args)
 {
 	char *s = va_arg(args, char *);
-	int ct = 0, m;
+	int ct = 0;
 
-	if (s == NULL)
+	while (*s)
 	{
-		s = "(null)";
-	}
-
-	for (m = 0; s[m] != '\0'; m++)
-	{
-		_putchar(s[m]);
+		_putchar(*s++);
 		ct++;
 	}
-
-	return (-1);
+	return (ct);
 }
 
 /**
@@ -62,5 +56,5 @@ int print_percent(va_list args)
 	{
 		_putchar('%');
 	}
-	return (-1);
+	return (1);
 }
