@@ -28,6 +28,7 @@ int _printf(const char *format, ...)
 		}
 		_putchar(*ptr);
 		ptr++;
+		ct++;
 	}
 	va_end(args);
 	return (ct);
@@ -50,6 +51,7 @@ int add_printf(const char *ptr, va_list args)
 
 	spe_printf_t name_tab[] = {
 		{'c', print_char},
+		{'%', print_percent},
 		{'\0', NULL}
 	};
 
@@ -89,6 +91,17 @@ int print_char(va_list args)
 		return (1);
 	}
 }
+
+
+int print_percent(va_list args)
+{
+	(void)args;
+	{
+		_putchar('%');
+		return (1);
+	}
+}
+
 
 
 
