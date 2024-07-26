@@ -55,6 +55,8 @@ int add_printf(const char *ptr, va_list args)
 		{'c', print_char},
 		{'s', print_string},
 		{'%', print_percent},
+		{'d', print_integer},
+		{'i', print_integer},
 		{'\0', NULL}
 	};
 

@@ -27,6 +27,8 @@ int add_printf(const char *ptr, va_list args);
 int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
-int _strlen(char *s);
+int _strlen(const char *s);
+int print_integer(va_list args);
+int printint_help(long int n, int base);
 
 #endif
