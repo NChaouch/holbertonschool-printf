@@ -25,7 +25,6 @@ int _printf(const char *format, ...)
 		{
 			ptr++;
 			ct += add_printf(ptr, args);
-			ptr++;
 		}
 		else
 		{
