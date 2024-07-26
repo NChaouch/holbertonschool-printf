@@ -1,0 +1,143 @@
+.TH PRINTF "July 26, 2024" "Printf Project"
+.SH NAME
+printf \- custom implementation of printf function
+.SH SYNOPSIS
+.B printf
+[FORMAT]...
+.SH DESCRIPTION
+.B printf
+is a custom implementation of the standard \fBprintf\fP function in C, which produces output according to a specified format.
+.SH HEADER FILE
+To use the custom printf function, include the header file in our source code:
+.nf
+\fB#include "main.h"\fP
+.fi
+.SH FUNCTIONS
+.TP
+\fBint _putchar(char c);\fP
+Writes the character \fBc\fP to stdout.
+.RS
+.TP
+\fBParameters:\fP
+.RS
+\fBc\fP: The character to be printed.
+.RE
+.TP
+\fBReturns:\fP
+.RS
+On success, returns the character written. On error, returns a negative value.
+.RE
+.RE
+.TP
+\fBint _printf(const char *format, ...);\fP
+Produces output according to a format.
+.RS
+.TP
+\fBParameters:\fP
+.RS
+\fBformat\fP: The format string containing characters and specifiers.
+.RE
+.TP
+\fBReturns:\fP
+.RS
+The number of characters printed, excluding the null byte.
+.RE
+.RE
+.TP
+\fBint add_printf(const char *ptr, va_list args);\fP
+Checks if a modulo character is present and processes it.
+.RS
+.TP
+\fBParameters:\fP
+.RS
+\fBptr\fP: Pointer to the constant character.
+\fBargs\fP: List of arguments used.
+.RE
+.TP
+\fBReturns:\fP
+.RS
+The number of characters printed.
+.RE
+.RE
+.TP
+\fBint print_char(va_list args);\fP
+Prints a character.
+.RS
+.TP
+\fBParameters:\fP
+.RS
+\fBargs\fP: Argument list containing a character to print.
+.RE
+.TP
+\fBReturns:\fP
+.RS
+The number of characters printed (always 1).
+.RE
+.RE
+.TP
+\fBint print_string(va_list args);\fP
+Prints a string.
+.RS
+.TP
+\fBParameters:\fP
+.RS
+\fBargs\fP: Argument list containing a string to print.
+.RE
+.TP
+\fBReturns:\fP
+.RS
+The number of characters printed.
+.RE
+.RE
+.TP
+\fBint print_percent(va_list args);\fP
+Prints a percent sign.
+.RS
+.TP
+\fBParameters:\fP
+.RS
+\fBargs\fP: Argument list.
+.RE
+.TP
+\fBReturns:\fP
+.RS
+The number of characters printed (always 1).
+.RE
+.RE
+.SH STRUCTURES
+.TP
+\fBstruct spe_printf\fP
+Maps specifiers to corresponding functions.
+.RS
+.TP
+\fBMembers:\fP
+.RS
+\fBchar spe\fP: The format specifier character.
+\fBint (*func)(va_list)\fP: Pointer to the function that handles the specifier.
+.RE
+.RE
+.TP
+\fBtypedef struct spe_printf spe_printf_t\fP
+Typedef for the structure \fBspe_printf\fP.
+.SH EXAMPLE USAGE
+Here's an example of how to use the custom \fB_printf\fP function:
+.nf
+\fB#include "main.h"\fP
+.fi
+.PP
+\fBint main(void)\fP
+.RS
+\fB{\fP
+\fB    _printf("Hello, %s!\\n", "world");\fP
+\fB    _printf("Character: %c\\n", 'A');\fP
+\fB    _printf("Percent sign: %%\\n");\fP
+\fB    return (0);\fP
+\fB}\fP
+.RE
+.SH AUTHOR
+Written by the Printf Project Team.
+.SH REPORTING BUGS
+Report bugs to the Printf Project Team at <nourchaouch44@gmail.com> <hepar79@protonmail.com>.
+.SH COPYRIGHT
+This is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version. This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
