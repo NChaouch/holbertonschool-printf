@@ -27,9 +27,12 @@ int _printf(const char *format, ...)
 			ct += add_printf(ptr, args);
 			ptr++;
 		}
-		_putchar(*ptr);
-		ptr++;
-		ct++;
+		else
+		{
+			_putchar(*ptr);
+			ct++;
+			ptr++;
+		}
 	}
 	va_end(args);
 	return (ct);
