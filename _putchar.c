@@ -12,3 +12,21 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+
+/**
+ * _strlen - function for calculate
+ * the length of the string.
+ * @s: the pointer of the string.
+ * Return: the length.
+ */
+int _strlen(const char *s)
+{
+	int length = 0;
+
+	while (s[length] != '\0')
+	{
+		length++;
+	}
+
+	return (length);
+}

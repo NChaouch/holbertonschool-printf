@@ -75,3 +75,4 @@ int add_printf(const char *ptr, va_list args)
 
 	return (ct);
 }
+
